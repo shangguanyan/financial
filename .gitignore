@@ -1,0 +1,12 @@
+# Created by lance .ignore support plugin (hsz.mobi)
+*.class
+.classpath
+.project
+.settings
+.metadata
+*stdout.log
+*debug.log
+.gradle
+.idea
+.recommenders
+*.sh

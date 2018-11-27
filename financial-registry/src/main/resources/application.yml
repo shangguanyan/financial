@@ -1,0 +1,10 @@
+server:
+  port: 18080
+spring:
+  application:
+    name: financial-registry
+eureka:
+  client:
+    service-url: http://127.0.0.1:${server.port}/eureka
+  server:
+    enable-self-preservation: false
