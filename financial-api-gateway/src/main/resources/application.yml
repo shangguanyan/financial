@@ -1,11 +1,12 @@
 server:
-  port: 18010
+  port: 8080
 spring:
   application:
     name: financial-api-gateway
 eureka:
   client:
-    service-url: http://127.0.0.1:18080/eureka
+    service-url:
+      defaultZone:  http://127.0.0.1:18080/eureka
     registry-fetch-interval-seconds: 5
   instance:
     prefer-ip-address: true
@@ -14,6 +15,8 @@ eureka:
 zuul:
   prefix: /api
   retryable: true
+  routes:
+    goods-serice: /goods/**
 
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)

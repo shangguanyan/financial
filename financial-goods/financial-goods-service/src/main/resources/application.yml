@@ -1,0 +1,20 @@
+server:
+  port: 18081
+spring:
+  application:
+    name: goods-serice
+  datasource:
+    url: jdbc:mysql://192.168.111.135:3306/financial
+    username: root
+    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:18080/eureka
+  instance:
+      lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+      lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+      prefer-ip-address: true
+      ip-address: 127.0.0.1
+      instance-id: ${spring.application.name}:${server.port}
+

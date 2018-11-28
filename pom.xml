@@ -10,6 +10,8 @@
     <modules>
         <module>financial-registry</module>
         <module>financial-api-gateway</module>
+        <module>financial-goods</module>
+        <module>financial-common</module>
     </modules>
     <packaging>pom</packaging>
 
