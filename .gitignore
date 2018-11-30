@@ -10,3 +10,17 @@
 .idea
 .recommenders
 *.sh
+target
+target/
+*.iml
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Log file
+*.log
