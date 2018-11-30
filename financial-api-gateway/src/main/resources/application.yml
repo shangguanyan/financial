@@ -17,6 +17,7 @@ zuul:
   retryable: true
   routes:
     goods-serice: /goods/**
+    menu-service: /menus/**
 
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)

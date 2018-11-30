@@ -12,6 +12,7 @@
         <module>financial-api-gateway</module>
         <module>financial-goods</module>
         <module>financial-common</module>
+      <module>financial-menu</module>
     </modules>
     <packaging>pom</packaging>
 
