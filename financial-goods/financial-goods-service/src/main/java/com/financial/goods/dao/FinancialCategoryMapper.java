@@ -1,6 +1,6 @@
 package com.financial.goods.dao;
 
-import com.financial.goods.model.FinancialCategory;
+import com.financial.model.FinancialCategory;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

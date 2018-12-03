@@ -1,7 +1,7 @@
 package com.financial.goods.service;
 
 import com.financial.goods.dao.FinancialCategoryMapper;
-import com.financial.goods.model.FinancialCategory;
+import com.financial.model.FinancialCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

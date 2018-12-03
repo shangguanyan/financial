@@ -18,5 +18,13 @@
     </modules>
     <packaging>pom</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.financial.common</groupId>
+      <artifactId>financial-common</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
 
 </project>

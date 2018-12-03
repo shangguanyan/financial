@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.financial.goods.dao.FinancialCategoryMapper">
-  <resultMap id="BaseResultMap" type="com.financial.goods.model.FinancialCategory">
+  <resultMap id="BaseResultMap" type="com.financial.model.FinancialCategory">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="is_parent" jdbcType="INTEGER" property="isParent" />
@@ -21,13 +21,13 @@
     delete from financial_category
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.financial.goods.model.FinancialCategory">
+  <insert id="insert" parameterType="com.financial.model.FinancialCategory">
     insert into financial_category (id, name, is_parent,
       parent_id, sort)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{isParent,jdbcType=INTEGER},
       #{parentId,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.financial.goods.model.FinancialCategory">
+  <insert id="insertSelective" parameterType="com.financial.model.FinancialCategory">
     insert into financial_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.financial.goods.model.FinancialCategory">
+  <update id="updateByPrimaryKeySelective" parameterType="com.financial.model.FinancialCategory">
     update financial_category
     <set>
       <if test="name != null">
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.financial.goods.model.FinancialCategory">
+  <update id="updateByPrimaryKey" parameterType="com.financial.model.FinancialCategory">
     update financial_category
     set name = #{name,jdbcType=VARCHAR},
       is_parent = #{isParent,jdbcType=INTEGER},

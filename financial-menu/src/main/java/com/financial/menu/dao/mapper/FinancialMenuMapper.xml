@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.financial.menu.dao.FinancialMenuMapper">
-  <resultMap id="BaseResultMap" type="com.financial.goods.model.FinancialMenu">
+  <resultMap id="BaseResultMap" type="com.financial.model.FinancialMenu">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="action" jdbcType="VARCHAR" property="action" />
@@ -9,13 +9,13 @@
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
   </resultMap>
 
-  <resultMap id="menuMap" type="com.financial.goods.model.FinancialMenu">
+  <resultMap id="menuMap" type="com.financial.model.FinancialMenu">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="action" jdbcType="VARCHAR" property="action" />
     <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
-    <collection property="childrens" ofType="com.financial.goods.model.FinancialMenu" column="id"
+    <collection property="childrens" ofType="com.financial.model.FinancialMenu" column="id"
                 select="getMenuByParentId"/>
   </resultMap>
   <sql id="Base_Column_List">
@@ -31,13 +31,13 @@
     delete from financial_menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.financial.goods.model.FinancialMenu">
+  <insert id="insert" parameterType="com.financial.model.FinancialMenu">
     insert into financial_menu (id, title, action,
       path, parent_id)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR},
       #{path,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.financial.goods.model.FinancialMenu">
+  <insert id="insertSelective" parameterType="com.financial.model.FinancialMenu">
     insert into financial_menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -74,7 +74,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.financial.goods.model.FinancialMenu">
+  <update id="updateByPrimaryKeySelective" parameterType="com.financial.model.FinancialMenu">
     update financial_menu
     <set>
       <if test="title != null">
@@ -92,7 +92,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.financial.goods.model.FinancialMenu">
+  <update id="updateByPrimaryKey" parameterType="com.financial.model.FinancialMenu">
     update financial_menu
     set title = #{title,jdbcType=VARCHAR},
       action = #{action,jdbcType=VARCHAR},

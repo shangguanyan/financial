@@ -1,6 +1,6 @@
 package com.financial.goods.controller;
 
-import com.financial.goods.model.FinancialCategory;
+import com.financial.model.FinancialCategory;
 import com.financial.goods.service.FinancialCategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

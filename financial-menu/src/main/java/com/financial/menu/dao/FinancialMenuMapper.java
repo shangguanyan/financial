@@ -1,6 +1,6 @@
 package com.financial.menu.dao;
 
-import com.financial.goods.model.FinancialMenu;
+import com.financial.model.FinancialMenu;
 
 import java.util.List;
 

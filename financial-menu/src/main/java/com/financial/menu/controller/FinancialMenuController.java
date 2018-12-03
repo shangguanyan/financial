@@ -1,6 +1,6 @@
 package com.financial.menu.controller;
 
-import com.financial.goods.model.FinancialMenu;
+import com.financial.model.FinancialMenu;
 import com.financial.menu.service.FinancialMenuService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
