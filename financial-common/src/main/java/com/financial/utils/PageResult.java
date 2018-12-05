@@ -3,8 +3,11 @@ package com.financial.utils;
 import java.util.List;
 
 public class PageResult {
+  //总条数
   private long totalNum;
+  //总页数
   private long totalPage;
+  //当前页数据
   private List<?> results;
 
   public PageResult(long totalNum,long totalPage,List<?> results){

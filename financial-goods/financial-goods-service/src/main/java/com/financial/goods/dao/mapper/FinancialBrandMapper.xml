@@ -11,7 +11,7 @@
     id, name, image, letter
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from financial_brand
     where id = #{id,jdbcType=BIGINT}
@@ -21,9 +21,9 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.financial.model.FinancialBrand">
-    insert into financial_brand (id, name, image, 
+    insert into financial_brand (id, name, image,
       letter)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR},
       #{letter,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.financial.model.FinancialBrand">
@@ -79,4 +79,12 @@
       letter = #{letter,jdbcType=CHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="getList" resultMap="BaseResultMap">
+    SELECT * FROM financial_brand  ${sql}
+  </select>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    SELECT * FROM financial_brand
+  </select>
 </mapper>
