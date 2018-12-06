@@ -21,8 +21,8 @@ public class FinancialBrandController {
     return ResponseEntity.ok(pageResult);
   }
   @PostMapping("delete")
-  public ResponseEntity delete(HttpServletRequest request, String id){
-    financialBrandService.delete(1l);
+  public ResponseEntity delete(HttpServletRequest request, @RequestParam Long id){
+    financialBrandService.delete(id);
     return ResponseEntity.ok(HttpStatus.OK);
   }
 }
