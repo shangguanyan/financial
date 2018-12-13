@@ -4,7 +4,7 @@ spring:
   application:
     name: menu-service
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/financial?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong
+    url: jdbc:mysql://192.168.111.135:3306/financial?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong
     username: root
     password: 123456
 eureka:

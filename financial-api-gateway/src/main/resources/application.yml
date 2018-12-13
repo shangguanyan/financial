@@ -18,6 +18,7 @@ zuul:
   routes:
     goods-serice: /goods/**
     menu-service: /menus/**
+  ignored-services: -upload-service
 
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)

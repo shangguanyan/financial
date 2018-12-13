@@ -20,10 +20,11 @@
     delete from financial_brand
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.financial.model.FinancialBrand">
-    insert into financial_brand (id, name, image,
+  <insert id="insert" parameterType="com.financial.model.FinancialBrand"
+          useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+    insert into financial_brand ( name, image,
       letter)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR},
+    values ( #{name,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR},
       #{letter,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.financial.model.FinancialBrand">

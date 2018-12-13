@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MybatisConfiguration {
-  	@Bean
+  @Bean
 	public PageInterceptor pageInterceptor(){
 		PageInterceptor pageInterceptor = new PageInterceptor();
     Properties p = new Properties();
