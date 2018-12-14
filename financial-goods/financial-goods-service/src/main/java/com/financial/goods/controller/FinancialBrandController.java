@@ -2,6 +2,7 @@ package com.financial.goods.controller;
 
 import com.financial.goods.service.FinancialBrandService;
 import com.financial.goods.vo.FinancialBrandCategoryVo;
+import com.financial.model.FinancialCategory;
 import com.financial.utils.PageRequest;
 import com.financial.utils.PageResult;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/brand")
@@ -32,7 +34,17 @@ public class FinancialBrandController {
   @PostMapping("add")
   public ResponseEntity add(@RequestBody FinancialBrandCategoryVo financialBrandCategoryVo){
     logger.info(financialBrandCategoryVo.toString());
-    financialBrandService.addFinancialBrand(financialBrandCategoryVo);
+    //判断是添加还是修改，使用id作为判断条件
+    if(financialBrandCategoryVo.getIsEdit()){
+      financialBrandService.updateFinancialBrand(financialBrandCategoryVo);
+    }else {
+      financialBrandService.addFinancialBrand(financialBrandCategoryVo);
+    }
     return ResponseEntity.ok(HttpStatus.CREATED);
+  }
+  @GetMapping("/getByBid")
+  public ResponseEntity<List<FinancialCategory>> getByBid(@RequestParam Long bid){
+    List<FinancialCategory> financialCategories = financialBrandService.getByBid(bid);
+    return ResponseEntity.ok(financialCategories);
   }
 }

@@ -9,8 +9,8 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.financial.service</groupId>
-  <artifactId>financial-upload</artifactId>
+  <groupId>com.financial.fileupload</groupId>
+  <artifactId>financial-fileupload</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
   <dependencies>
@@ -23,6 +23,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+
     <dependency>
       <groupId>com.github.tobato</groupId>
       <artifactId>fastdfs-client</artifactId>

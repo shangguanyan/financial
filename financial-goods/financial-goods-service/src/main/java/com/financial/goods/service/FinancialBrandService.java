@@ -5,6 +5,7 @@ import com.financial.goods.dao.FinancialBrandMapper;
 import com.financial.goods.vo.FinancialBrandCategoryVo;
 import com.financial.model.FinancialBrand;
 import com.financial.model.FinancialBrandCategory;
+import com.financial.model.FinancialCategory;
 import com.financial.utils.PageRequest;
 import com.financial.utils.PageResult;
 import com.github.pagehelper.PageHelper;
@@ -61,14 +62,36 @@ public class FinancialBrandService {
     FinancialBrand financialBrand = new FinancialBrand();
     BeanUtils.copyProperties(financialBrandCategoryVo,financialBrand);
     financialBrandMapper.insert(financialBrand);
+    this.addBrandCategory(financialBrandCategoryVo,financialBrand.getId().intValue());
+  }
+
+  private void addBrandCategory(FinancialBrandCategoryVo financialBrandCategoryVo,Integer brandId){
     Map[] categorys = financialBrandCategoryVo.getCategories();
     for(Map map:categorys){
       FinancialBrandCategory financialBrandCategory = new FinancialBrandCategory();
       financialBrandCategory.setBrandName(financialBrandCategoryVo.getName());
       financialBrandCategory.setCategoryId(Integer.parseInt(map.get("id").toString()));
       financialBrandCategory.setCategoryName(map.get("name").toString());
-      financialBrandCategory.setBrandId(financialBrand.getId().intValue());
+      financialBrandCategory.setBrandId(brandId);
       financialBrandCategoryMapper.insert(financialBrandCategory);
     }
+  }
+
+  public List<FinancialCategory> getByBid(Long bid) {
+    return financialBrandCategoryMapper.getByBid(bid);
+  }
+
+  /**
+   * 修改 品牌
+   * @param financialBrandCategoryVo
+   */
+  public void updateFinancialBrand(FinancialBrandCategoryVo financialBrandCategoryVo) {
+    //先删除 品牌和菜单之间的关系
+    financialBrandCategoryMapper.deleteByBrandId(financialBrandCategoryVo.getBrandId());
+    FinancialBrand financialBrand = new FinancialBrand();
+    BeanUtils.copyProperties(financialBrandCategoryVo,financialBrand);
+    financialBrand.setId(financialBrandCategoryVo.getBrandId());
+    financialBrandMapper.updateByPrimaryKey(financialBrand);
+    this.addBrandCategory(financialBrandCategoryVo,financialBrand.getId().intValue());
   }
 }

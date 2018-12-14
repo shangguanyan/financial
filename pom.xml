@@ -13,7 +13,7 @@
         <module>financial-goods</module>
         <module>financial-common</module>
       <module>financial-menu</module>
-      <module>financial-upload</module>
+      <module>financial-fileupload</module>
     </modules>
     <packaging>pom</packaging>
 

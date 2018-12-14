@@ -94,4 +94,9 @@
   <delete id="deleteByBrandId">
     DELETE FROM financial_brand_category WHERE brand_id = #{brandid}
   </delete>
+
+  <select id="getByBid" resultType="com.financial.model.FinancialCategory">
+    SELECT fc.* FROM financial_brand_category fbc LEFT JOIN financial_category fc
+	    on fbc.category_id = fc.id where fbc.brand_id = #{bid}
+  </select>
 </mapper>

@@ -8,6 +8,25 @@ public class FinancialBrandCategoryVo {
   private String letter; // 品牌首字母
   private String image;// 品牌logo
   private Map[] categories; // 品牌所属的商品分类数组
+  private Boolean isEdit;
+
+  private Long brandId;
+
+  public Long getBrandId() {
+    return brandId;
+  }
+
+  public void setBrandId(Long brandId) {
+    this.brandId = brandId;
+  }
+
+  public Boolean getIsEdit() {
+    return isEdit;
+  }
+
+  public void setIsEdit(Boolean edit) {
+    isEdit = edit;
+  }
 
   public String getName() {
     return name;

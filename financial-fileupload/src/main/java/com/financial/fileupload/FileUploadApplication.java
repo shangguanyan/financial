@@ -1,4 +1,4 @@
-package com.financial.upload;
+package com.financial.fileupload;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class FinancialUploadApplication {
+public class FileUploadApplication {
   public static void main(String[] args) {
-    SpringApplication.run(FinancialUploadApplication.class, args);
+    SpringApplication.run(FileUploadApplication.class, args);
   }
 }
