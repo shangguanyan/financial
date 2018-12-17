@@ -11,7 +11,7 @@
     id, param_name, search, category_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from financial_category_param
     where id = #{id,jdbcType=INTEGER}
@@ -21,9 +21,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.financial.model.FinancialCategoryParam">
-    insert into financial_category_param (id, param_name, search, 
+    insert into financial_category_param (id, param_name, search,
       category_id)
-    values (#{id,jdbcType=INTEGER}, #{paramName,jdbcType=VARCHAR}, #{search,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{paramName,jdbcType=VARCHAR}, #{search,jdbcType=INTEGER},
       #{categoryId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.financial.model.FinancialCategoryParam">
@@ -79,4 +79,8 @@
       category_id = #{categoryId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getList" resultMap="BaseResultMap">
+    SELECT * FROM financial_category_param ${sqlString}
+  </select>
 </mapper>
