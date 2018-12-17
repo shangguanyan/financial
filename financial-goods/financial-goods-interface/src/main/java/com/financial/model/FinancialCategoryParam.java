@@ -1,13 +1,13 @@
 package com.financial.model;
 
-public class FinancialSpuParam {
+public class FinancialCategoryParam {
     private Integer id;
 
     private String paramName;
 
     private Integer search;
 
-    private Integer skuId;
+    private Integer categoryId;
 
     public Integer getId() {
         return id;
@@ -33,11 +33,11 @@ public class FinancialSpuParam {
         this.search = search;
     }
 
-    public Integer getSkuId() {
-        return skuId;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setSkuId(Integer skuId) {
-        this.skuId = skuId;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }
