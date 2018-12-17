@@ -51,8 +51,7 @@ public class FileUploadService {
       // 2.1、获取文件后缀名
       String extension = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");
       // 2.2、上传
-      StorePath storePath = this.storageClient.uploadFile(
-        file.getInputStream(), file.getSize(), extension, null);
+      StorePath storePath = storageClient.uploadFile(file.getInputStream(), file.getSize(), extension, null);
       // 2.3、拼接图片地址
       String url = "http://192.168.111.135:8888/" + storePath.getFullPath();
       return url;

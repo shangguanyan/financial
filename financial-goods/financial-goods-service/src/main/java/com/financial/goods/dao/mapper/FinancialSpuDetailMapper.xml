@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.financial.goods.dao.FinancialSpuDetailMapper">
+  <resultMap id="BaseResultMap" type="com.financial.model.FinancialSpuDetail">
+    <id column="spu_id" jdbcType="INTEGER" property="spuId" />
+    <result column="pack_list" jdbcType="VARCHAR" property="packList" />
+    <result column="after_service" jdbcType="VARCHAR" property="afterService" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.financial.model.FinancialSpuDetail">
+    <result column="desc" jdbcType="LONGVARCHAR" property="desc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    spu_id, pack_list, after_service
+  </sql>
+  <sql id="Blob_Column_List">
+    desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from financial_spu_detail
+    where spu_id = #{spuId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from financial_spu_detail
+    where spu_id = #{spuId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.financial.model.FinancialSpuDetail">
+    insert into financial_spu_detail (spu_id, pack_list, after_service, 
+      desc)
+    values (#{spuId,jdbcType=INTEGER}, #{packList,jdbcType=VARCHAR}, #{afterService,jdbcType=VARCHAR}, 
+      #{desc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.financial.model.FinancialSpuDetail">
+    insert into financial_spu_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="packList != null">
+        pack_list,
+      </if>
+      <if test="afterService != null">
+        after_service,
+      </if>
+      <if test="desc != null">
+        desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="spuId != null">
+        #{spuId,jdbcType=INTEGER},
+      </if>
+      <if test="packList != null">
+        #{packList,jdbcType=VARCHAR},
+      </if>
+      <if test="afterService != null">
+        #{afterService,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.financial.model.FinancialSpuDetail">
+    update financial_spu_detail
+    <set>
+      <if test="packList != null">
+        pack_list = #{packList,jdbcType=VARCHAR},
+      </if>
+      <if test="afterService != null">
+        after_service = #{afterService,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        desc = #{desc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where spu_id = #{spuId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.financial.model.FinancialSpuDetail">
+    update financial_spu_detail
+    set pack_list = #{packList,jdbcType=VARCHAR},
+      after_service = #{afterService,jdbcType=VARCHAR},
+      desc = #{desc,jdbcType=LONGVARCHAR}
+    where spu_id = #{spuId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.financial.model.FinancialSpuDetail">
+    update financial_spu_detail
+    set pack_list = #{packList,jdbcType=VARCHAR},
+      after_service = #{afterService,jdbcType=VARCHAR}
+    where spu_id = #{spuId,jdbcType=INTEGER}
+  </update>
+</mapper>
