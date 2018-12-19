@@ -9,6 +9,8 @@ public class FinancialSpu {
 
     private Integer brandId;
 
+    private Integer brandCategoryId;
+
     private Integer saleAble;
 
     private Integer valid;
@@ -17,7 +19,15 @@ public class FinancialSpu {
 
     private Date updateTime;
 
-    public Integer getId() {
+  public Integer getBrandCategoryId() {
+    return brandCategoryId;
+  }
+
+  public void setBrandCategoryId(Integer brandCategoryId) {
+    this.brandCategoryId = brandCategoryId;
+  }
+
+  public Integer getId() {
         return id;
     }
 

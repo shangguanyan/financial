@@ -5,16 +5,22 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="brand_id" jdbcType="INTEGER" property="brandId" />
+    <result column="brand_category_id" jdbcType="INTEGER" property="brandCategoryId" />
     <result column="sale_able" jdbcType="INTEGER" property="saleAble" />
     <result column="valid" jdbcType="INTEGER" property="valid" />
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="update_time" jdbcType="DATE" property="updateTime" />
   </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapToVo" type="com.financial.goods.vo.FinancailSpuVo">
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName"/>
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName"/>
+    <result column="category_id" jdbcType="INTEGER" property="categoryId"/>
+  </resultMap>
   <sql id="Base_Column_List">
     id, title, brand_id, sale_able, valid, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from financial_spu
     where id = #{id,jdbcType=INTEGER}
@@ -24,12 +30,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.financial.model.FinancialSpu">
-    insert into financial_spu (id, title, brand_id, 
-      sale_able, valid, create_time, 
-      update_time)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, 
-      #{saleAble,jdbcType=INTEGER}, #{valid,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, 
-      #{updateTime,jdbcType=DATE})
+    insert into financial_spu (id, title, brand_id,
+      sale_able, valid, create_time,
+      update_time,brand_category_id)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER},
+      #{saleAble,jdbcType=INTEGER}, #{valid,jdbcType=INTEGER}, #{createTime,jdbcType=DATE},
+      #{updateTime,jdbcType=DATE}, #{brandCategoryId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.financial.model.FinancialSpu">
     insert into financial_spu
@@ -114,4 +120,10 @@
       update_time = #{updateTime,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getList" resultMap="ResultMapToVo" >
+    SELECT fs.*,fbc.brand_name,fbc.category_id FROM financial_spu fs
+    LEFT JOIN financial_brand_category fbc on fbc.id = fs.brand_category_id
+     ${sqlString}
+  </select>
 </mapper>

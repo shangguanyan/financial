@@ -1,6 +1,8 @@
 package com.financial.model;
 
 public class FinancialSpuDetail {
+    private Integer id;
+
     private Integer spuId;
 
     private String packList;
@@ -8,6 +10,14 @@ public class FinancialSpuDetail {
     private String afterService;
 
     private String desc;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getSpuId() {
         return spuId;

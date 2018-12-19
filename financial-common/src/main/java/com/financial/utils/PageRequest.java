@@ -56,4 +56,28 @@ public class PageRequest {
   public void setAsc(boolean asc) {
     this.asc = asc;
   }
+
+  public String getSql() {
+    StringBuffer sqlString = new StringBuffer("where 1=1 ");
+    if (searchKeys != null) {
+      searchKeys.keySet().forEach(key -> {
+        if (!(searchKeys.get(key) == "" || searchKeys.get(key) == null)) {
+          if (key.toString().endsWith("id")) {
+            sqlString.append("and ").append(key).append("=").append(searchKeys.get(key));
+          } else {
+            sqlString.append(" and ").append(key).append(" like '%").append(searchKeys.get(key)).append("%'");
+          }
+        }
+      });
+    if(this.sortBy !=null){
+      sqlString.append(" order by " + this.sortBy );
+    }else{
+      sqlString.append(" order by id ");
+    }
+    if(!this.asc){
+      sqlString.append(" desc");
+    }
+    }
+    return sqlString.toString();
+  }
 }

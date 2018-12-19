@@ -1,6 +1,8 @@
 package com.financial.model;
 
 public class FinancialSkuStore {
+    private Integer id;
+
     private Integer skuId;
 
     private Integer killStore;
@@ -8,6 +10,14 @@ public class FinancialSkuStore {
     private Integer killTotal;
 
     private Integer storeTotal;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getSkuId() {
         return skuId;

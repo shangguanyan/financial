@@ -10,6 +10,7 @@
     <result column="create_time" jdbcType="DATE" property="createTime" />
     <result column="update_time" jdbcType="DATE" property="updateTime" />
   </resultMap>
+
   <sql id="Base_Column_List">
     id, title, images, price, en_sale, create_time, update_time
   </sql>
@@ -114,4 +115,6 @@
       update_time = #{updateTime,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
 </mapper>

@@ -3,13 +3,13 @@ package com.financial.goods.dao;
 import com.financial.model.FinancialSpuDetail;
 
 public interface FinancialSpuDetailMapper {
-    int deleteByPrimaryKey(Integer spuId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(FinancialSpuDetail record);
 
     int insertSelective(FinancialSpuDetail record);
 
-    FinancialSpuDetail selectByPrimaryKey(Integer spuId);
+    FinancialSpuDetail selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(FinancialSpuDetail record);
 

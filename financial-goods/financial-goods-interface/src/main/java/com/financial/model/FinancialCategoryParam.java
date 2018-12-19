@@ -9,7 +9,17 @@ public class FinancialCategoryParam {
 
     private Integer categoryId;
 
-    public Integer getId() {
+    private Boolean isEdit;
+
+  public Boolean getIsEdit() {
+    return isEdit;
+  }
+
+  public void setEdit(Boolean edit) {
+    isEdit = edit;
+  }
+
+  public Integer getId() {
         return id;
     }
 
@@ -40,4 +50,15 @@ public class FinancialCategoryParam {
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
+
+  @Override
+  public String toString() {
+    return "FinancialCategoryParam{" +
+      "id=" + id +
+      ", paramName='" + paramName + '\'' +
+      ", search=" + search +
+      ", categoryId=" + categoryId +
+      ", isEdit=" + isEdit +
+      '}';
+  }
 }
