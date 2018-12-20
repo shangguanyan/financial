@@ -23,4 +23,5 @@ public interface FinancialBrandMapper{
   List<FinancialBrand> getList(@Param("sql") String sqlString);
 
   List<FinancialBrand> getAll();
+
 }

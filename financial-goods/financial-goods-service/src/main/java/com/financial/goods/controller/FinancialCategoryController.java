@@ -1,5 +1,6 @@
 package com.financial.goods.controller;
 
+import com.financial.goods.vo.FinancialCategorySelect;
 import com.financial.model.FinancialCategory;
 import com.financial.goods.service.FinancialCategoryService;
 import org.slf4j.Logger;
@@ -22,5 +23,11 @@ public class FinancialCategoryController {
   public ResponseEntity<List<FinancialCategory>> queryCategoryByParentId(@RequestParam(value="pid")Long pid) {
     List<FinancialCategory> financialCategoryList = financialCategoryService.queryListByParentId(pid);
     return ResponseEntity.ok(financialCategoryList);
+  }
+
+  @GetMapping("/listPid")
+  public ResponseEntity<List<FinancialCategorySelect>> listPid(){
+    List<FinancialCategorySelect> financialCategorySelects = financialCategoryService.listPid();
+    return ResponseEntity.ok(financialCategorySelects);
   }
 }

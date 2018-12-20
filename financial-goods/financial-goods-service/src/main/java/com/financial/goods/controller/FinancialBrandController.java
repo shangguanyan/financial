@@ -2,6 +2,7 @@ package com.financial.goods.controller;
 
 import com.financial.goods.service.FinancialBrandService;
 import com.financial.goods.vo.FinancialBrandCategoryVo;
+import com.financial.model.FinancialBrand;
 import com.financial.model.FinancialCategory;
 import com.financial.utils.PageRequest;
 import com.financial.utils.PageResult;
@@ -25,6 +26,12 @@ public class FinancialBrandController {
   public ResponseEntity getList(@RequestBody PageRequest pageRequest) {
     PageResult pageResult = financialBrandService.getList(pageRequest);
     return ResponseEntity.ok(pageResult);
+  }
+
+  @GetMapping("/list")
+  public ResponseEntity getListNoParam() {
+    List<FinancialBrand> financialBrands = financialBrandService.getListNoParam();
+    return ResponseEntity.ok(financialBrands);
   }
   @PostMapping("delete")
   public ResponseEntity delete(HttpServletRequest request, @RequestParam Long id){

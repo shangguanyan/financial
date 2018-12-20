@@ -79,4 +79,8 @@ public class FinancialBrandService {
     financialBrandMapper.updateByPrimaryKey(financialBrand);
     this.addBrandCategory(financialBrandCategoryVo,financialBrand.getId().intValue());
   }
+
+  public List<FinancialBrand> getListNoParam() {
+    return financialBrandMapper.getAll();
+  }
 }

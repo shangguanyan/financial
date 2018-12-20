@@ -88,4 +88,5 @@
   <select id="getAll" resultMap="BaseResultMap">
     SELECT * FROM financial_brand
   </select>
+
 </mapper>
