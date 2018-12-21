@@ -1,5 +1,6 @@
 package com.financial.goods.dao;
 
+import com.financial.goods.vo.FinancialCategorySelect;
 import com.financial.model.FinancialCategory;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,5 +21,7 @@ public interface FinancialCategoryMapper {
 
     int updateByPrimaryKey(FinancialCategory record);
 
-    List<FinancialCategory> queryListByParentId(@Param("pid") Long pid);
+    List<FinancialCategory> queryListByParentId(@Param("id") Long pid);
+
+  List<FinancialCategorySelect> listPid();
 }

@@ -1,6 +1,7 @@
 package com.financail.goods;
 
 import com.financial.goods.FinancialGoodsApplication;
+import com.financial.goods.service.FinancialCategoryService;
 import com.financial.goods.service.FinancialSpuService;
 import com.financial.utils.PageRequest;
 import org.junit.Test;
@@ -17,6 +18,8 @@ import java.util.List;
 public class FinancailSpuTest {
   @Autowired
   FinancialSpuService financialSpuService;
+  @Autowired
+  FinancialCategoryService financialCategoryService;
 
   @Test
   public void testName() {
@@ -29,5 +32,11 @@ public class FinancailSpuTest {
   public void testGetList(){
     PageRequest pageRequest = new PageRequest();
     financialSpuService.getList(pageRequest);
+  }
+
+  @Test
+  public void testPid() {
+    List results = financialCategoryService.listPid();
+    System.out.println(results);
   }
 }

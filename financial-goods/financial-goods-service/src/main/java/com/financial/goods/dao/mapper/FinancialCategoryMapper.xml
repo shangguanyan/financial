@@ -8,6 +8,13 @@
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
+  <resultMap id="ResultSelect" type="com.financial.goods.vo.FinancialCategorySelect">
+    <id column="id" jdbcType="INTEGER" property="value" />
+    <result column="name" jdbcType="VARCHAR" property="label" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <collection property="children" ofType="com.financial.goods.vo.FinancialCategorySelect"
+                column="id" select="listPidByParentId"></collection>
+  </resultMap>
   <sql id="Base_Column_List">
     id, name, is_parent, parent_id, sort
   </sql>
@@ -92,6 +99,14 @@
   </update>
 
   <select id="queryListByParentId" resultMap="BaseResultMap" parameterType="Long">
-    SELECT <include refid="Base_Column_List" /> FROM financial_category WHERE parent_id = #{pid}
+    SELECT <include refid="Base_Column_List" /> FROM financial_category WHERE parent_id = #{id}
+  </select>
+
+  <select id="listPidByParentId" resultMap="ResultSelect" parameterType="Long">
+    SELECT * FROM financial_category WHERE parent_id = #{id}
+  </select>
+
+  <select id="listPid" resultMap="ResultSelect">
+    SELECT * FROM financial_category WHERE parent_id = 0
   </select>
 </mapper>
